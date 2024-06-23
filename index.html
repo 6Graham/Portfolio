@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="resources/lines.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles/main_style.css">
+    <title>6Graham</title>
+</head>
+
+<body>
+    <main class="container">
+        <div class="sidebar">
+            <i class='bx bxs-home' onclick="showSection('home')"></i>
+            <i class='bx bxs-folder-open' onclick="showSection('projects')"></i>
+            <i class='bx bxs-envelope' onclick="showSection('contact')"></i>
+            <i class='bx bxs-cog' onclick="showSection('settings')"></i>
+            <i class='bx bxs-heart' onclick="showSection('favorites')"></i>
+        </div>
+
+        <div class="content">
+            <section class="section1">
+                <div class="profile">
+                    <div class="img-background">
+                        <img class="img-profile" src="resources/profile.jpg" alt="profile_img">
+                    </div>
+                    <span class="tittle">@6Graham</span>
+                </div>
+
+                <div class="about">
+                    <div class="up-info">
+                        <span class="tittle">Sobre Mi</span>
+                        <p class="description">
+                            Esta es mi presentación sobre mí. Programo solo por diversión. Me gusta el Cafe Frio. Blah
+                            blah. Quiero un perro. Por favor, contrátenme como programador. Lo haré
+                            muy bien. ¡Gracias!
+                        </p>
+                    </div>
+                </div>
+
+                <a class="contact" href="#"><i class='bx bx-phone'></i> Contactar</a>
+
+            </section>
+
+            <section class="section2">
+                <div id="home" class="content-section">
+                    <h2>Inicio</h2>
+                    <p>Bienvenido a mi página personal. Aquí podrás encontrar información sobre mis proyectos y formas
+                        de contactarme.</p>
+
+                    <br><br>
+                    <div class="down-info">
+                        <input type="search" name="" id="" placeholder="Buscar..">
+                        <div class="buttons">
+                            <a href=""><i class='bx bxl-instagram'></i> Instagram</a>
+                            <a href=""><i class='bx bxl-twitter'></i> Twitter</a>
+                            <a href=""><i class='bx bxl-facebook'></i> Facebook</a>
+                            <a href=""><i class='bx bxl-tiktok'></i> Tiktok</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="projects" class="content-section projects-section" style="display: block;">
+                    <h2>Algunos de mis Proyectos son: </h2>
+                    <div class="card">
+                        <img src="resources/modern_dashboard.png" alt="Project 1">
+                        <div class="card-content">
+                            <h3>Modern Dashboard</h3>
+                            <p>Dashboard con estilo minimalista y moderno. Creado desde cero con HTML & CSS Solo en
+                                FrontEnd.</p>
+                            <div class="tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">PHP</span>
+                            </div>
+                            <div class="card-buttons">
+                                <a href="#" class="btn">Code</a>
+                                <a href="#" class="btn">Preview</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="resources/modern_login.webp" alt="Project 2">
+                        <div class="card-content">
+                            <h3>Modern Login</h3>
+                            <p>Dashboard con estilo minimalista y moderno. Creado desde cero con HTML & CSS Solo en
+                                FrontEnd.</p>
+                            <div class="tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">PHP</span>
+                            </div>
+                            <div class="card-buttons">
+                                <a href="#" class="btn">Code</a>
+                                <a href="#" class="btn">Preview</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="resources/modal.webp" alt="Project 2">
+                        <div class="card-content">
+                            <h3>Modal Window</h3>
+                            <p>Ventana Modal creada desde cero con HTML,CSS & JS.</p>
+                            <div class="tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JS</span>
+                            </div>
+                            <div class="card-buttons">
+                                <a href="#" class="btn">Code</a>
+                                <a href="#" class="btn">Preview</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <div id="contact" class="content-section" style="display:none;">
+            <h2>Contacto</h2>
+            <p>Puedes contactarme a través de mis redes sociales o enviándome un correo a example@example.com.
+            </p>
+        </div>
+
+        <div id="settings" class="content-section" style="display:none;">
+            <h2>Configuración</h2>
+            <p>Aquí puedes ajustar las configuraciones de tu perfil y preferencias.</p>
+        </div>
+
+        <div id="favorites" class="content-section" style="display:none;">
+            <h2>Favoritos</h2>
+            <p>Esta sección contiene tus artículos, proyectos y enlaces favoritos.</p>
+        </div>
+        </section>
+        </div>
+    </main>
+
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>
