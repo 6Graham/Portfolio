@@ -1,19 +1,25 @@
 <?php
-// Obtener parámetros de la URL
-$userId = $_GET['USERID'] ?? '';
-$username = $_GET['USERNAME'] ?? '';
-$thumbnail = $_GET['THUMBNAIL'] ?? '';
-$scriptName = $_GET['SCRIPT_NAME'] ?? '';
-$clientIp = $_GET['CLIENT_IP'] ?? '';
+$data = json_decode(file_get_contents('php://input'), true);
 
-// Validar y procesar los datos
-if (!empty($userId) && !empty($username) && !empty($clientIp)) {
-    // Procesar los datos (ejemplo: guardar en un archivo de registro)
-    $logData = "UserID: $userId, Username: $username, Thumbnail: $thumbnail, ScriptName: $scriptName, ClientIP: $clientIp\n";
-    file_put_contents('logs.txt', $logData, FILE_APPEND);
-    
-    // Responder al cliente (opcional)
-    echo "Datos recibidos y procesados correctamente.";
+if ($data) {
+    $webhook_url = 'https://discord.com/api/webhooks/1260618493288775792/4OACv2r0fZnqGON1bbDEhKi6zKPNnofkfDm_oghLasxFbIuHA_KyPsT3vbkutjSfDFyB'; 
+    $json_data = json_encode([
+        "username" => $data['username'],
+        "embeds" => $data['embeds']
+    ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+    $ch = curl_init($webhook_url);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-type: application/json']);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+    $response = curl_exec($ch);
+    curl_close($ch);
+
+    echo "Datos enviados a Discord.";
 } else {
     echo "Datos incompletos.";
 }
